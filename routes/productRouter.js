@@ -71,7 +71,7 @@ productRouter.post('/add',upload.single('productImage'),async (req,res,next)=>{
 
         imageT=url+`/`+image.path;
         //console.log(imageT);
-        await Product.create({title:title,image:imageT.path,price:price,details:details,size,size});
+        await Product.create({title:title,image:imageT,price:price,details:details,size,size});
         res.statusCode=200;
         res.send({message:'added successfully',success:true});
         next();
