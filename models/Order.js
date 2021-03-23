@@ -1,7 +1,7 @@
 const mongoose= require('mongoose');
 
 //username,date,total price,product titles only)
-const orderScema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     username:{
         type:String,
         required:true,
@@ -24,3 +24,6 @@ const orderScema = new mongoose.Schema({
        required:true 
     }
 })
+
+const Order =mongoose.model('Order',orderSchema);
+module.exports =Order;
