@@ -83,15 +83,16 @@ productRouter.post('/add',upload.single('productImage'),async (req,res,next)=>{
     }
 })
 
-productRouter.patch('/edit:id',upload.single('productImage'),async (req,res,next)=>{
+productRouter.patch('/edit/:id',upload.single('productImage'),async (req,res,next)=>{
     try{
         const id =req.params;
+        const _id = mongoose.Types.ObjectId(id);
         const image = req.file;
         const{title,price,details,size} =req.body;
         const url = req.protocol+'://'+req.get("host");
         imageT=url+`/`+image.path;
 
-        await Product.updateOne({_id:id},{title:title,image:imageT,price:price,details:details,size,size});
+        await Product.updateOne({_id:_id},{title:title,image:imageT,price:price,details:details,size,size});
         res.statusCode=200;
         res.send({message:'updated successfully',success:true});
         next();
@@ -103,11 +104,11 @@ productRouter.patch('/edit:id',upload.single('productImage'),async (req,res,next
     }
 })
 
-productRouter.delete('/delete:/id',async (req,res,next)=>{
+productRouter.delete('/delete/:title',async (req,res,next)=>{
     try{
         const{title} =req.params;
-        
-        await Product.deleteOne({_id:id});
+        console.log(title);
+        const result = await Product.deleteOne({title:title});
         res.statusCode=200;
         res.send({message:'deleted successfully',success:true});
         next();
