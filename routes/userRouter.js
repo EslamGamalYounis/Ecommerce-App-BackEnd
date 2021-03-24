@@ -20,6 +20,7 @@ const handleError = function(err){
 
 userRouter.post('/register',async (req,res,next)=>{
     try{
+        console.log(req.body);
         const {username,email,password,gender,image} = req.body;
         const hash = await bcrypt.hash(password,10);
         const user = await User.create({username:username,email:email,password:hash,gender:gender,image:image}); 

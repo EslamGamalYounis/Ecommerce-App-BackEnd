@@ -82,7 +82,7 @@ orderRouter.patch('/adminedit/:id',async (req,res,next)=>{
 orderRouter.delete('/delete/:id',async (req,res,next)=>{
     try{
         const {id}=req.params;
-        await Order.deleteOne({_id:id});
+        const result = await Order.deleteOne({_id:id});
         res.statusCode=200;
         res.send({message:'deleted successfully',success:true});
         next();
