@@ -18,7 +18,6 @@ const handleError = function(err){
 
 orderRouter.get('/getall',async (req,res,next)=>{
     try{
-        console.log("hello");
         if(Order){
             const orders = await Order.find({});
             res.statusCode =200;
