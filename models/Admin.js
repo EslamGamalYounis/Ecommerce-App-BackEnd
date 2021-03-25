@@ -19,9 +19,10 @@ const adminSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    Image:{
+    image:{
         type:String,
-        required:true
+        required:true,
+        default:"IMAGE"
     }
 }) 
 

@@ -10,7 +10,6 @@ const cors =require('cors');
 
 const jwt =require('jsonwebtoken');
 const Admin = require('../models/Admin');
-const Order = require('../models/Order');
 
 const adminRouter = new express.Router();
 adminRouter.use(cors());
