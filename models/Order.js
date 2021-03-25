@@ -4,7 +4,7 @@ const mongoose= require('mongoose');
 const orderSchema = new mongoose.Schema({
     username:{
         type:String,
-        required:true,
+        required:true
     },
     date:{
         type:Date,
