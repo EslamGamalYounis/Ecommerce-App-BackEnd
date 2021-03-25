@@ -38,7 +38,7 @@ adminRouter.post('/login', async(req,res,next)=>{
     try{
         const {username,password} = req.body;
         const admin =await Admin.findOne({username:username});
-        if(!user){
+        if(!admin){
             err =new Error("wrong username or password");
             res.statusCode = 401;
             res.send(err);
